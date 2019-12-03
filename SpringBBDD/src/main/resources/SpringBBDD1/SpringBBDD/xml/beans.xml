@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+<context:component-scan base-package="SpringBBDD"></context:component-scan>
+
+<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<property name="DriverClassName" value="oracle.jdbc.OracleDriver"></property>
+	<property name="url" value="jdbc:oracle:thin:@192.168.56.101:1521:xe"></property>
+    <property name="username" value="spring"></property>
+    <property name="password" value="spring"></property>
+</bean>
+
+<bean id="marca3" class="SpringBBDD.beans.Marca">
+	<property name="id" value="3"></property>
+	<property name="nombre" value="Adidas"></property>
+</bean>
+
+<bean id="marca4" class="SpringBBDD.beans.Marca">
+	<property name="id" value="5"></property>
+	<property name="nombre" value="nike"></property>
+</bean>
+
+<bean id="equipo1" class="SpringBBDD.beans.Equipo">
+	<property name="id" value="1"></property>
+	<property name="nombre" value="Juventus"></property>
+</bean>
+
+<bean id="camiseta1" class="SpringBBDD.beans.Camiseta">
+	<property name="id" value="1"></property>
+	<property name="numero" value="7"></property>
+	<property name="marca" ref="marca3"></property>
+</bean>
+
+<bean id="jugador1" class="SpringBBDD.beans.Jugador">
+	<property name="id" value="1"></property>
+	<property name="nombre" value="Masa"></property>
+	<property name="equipo" ref="equipo1"></property>
+	<property name="camiseta" ref="camiseta1"></property>
+</bean>
+
+<bean id="pedraso" class="SpringBBDD.beans.Jugador">
+	<property name="id" value="3"></property>
+	<property name="nombre" value="Pedraso"></property>
+	<property name="equipo" ref="equipo1"></property>
+	<property name="camiseta" ref="camiseta1"></property>
+</bean>
+
+</beans>

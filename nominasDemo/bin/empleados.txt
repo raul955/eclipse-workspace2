@@ -1,0 +1,2 @@
+James Cosling;32000032G;9;7;245000;
+Ada Lovelace;32000031R;1;1;55000;
